@@ -7,7 +7,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -19,15 +19,16 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
 
   return (
     <>
-      {/* Top Banner Ribbon - Unified Centered Mobile Responsive Row */}
+      {/* Top Banner Ribbon - Full Width Centered */}
       <div style={{
         backgroundColor: '#4A1725',
         color: '#FAF7F2',
         fontSize: '10px',
         fontWeight: '500',
-        letterSpacing: '0.08em',
+        letterSpacing: '0.06em',
         textTransform: 'uppercase',
         padding: '7px 12px',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -40,9 +41,9 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
           justifyContent: 'center', 
           gap: '8px', 
           flexWrap: 'wrap',
-          lineHeight: '1.4'
+          lineHeight: '1.3',
+          width: '100%'
         }}>
-          {/* Address */}
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
             <MapPin size={11} color="#E0A855" style={{ flexShrink: 0 }} />
             <span>College Rd, Nashik</span>
@@ -50,7 +51,6 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
 
           <span style={{ color: '#E0A855', opacity: 0.6 }}>•</span>
 
-          {/* Phone */}
           <a 
             href="tel:+919561705405" 
             style={{ 
@@ -68,14 +68,13 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
 
           <span style={{ color: '#E0A855', opacity: 0.6 }}>•</span>
 
-          {/* Tagline */}
           <span style={{ color: '#E0A855', display: 'inline-flex', alignItems: 'center', gap: '4px', fontWeight: '600' }}>
             <Sparkles size={11} style={{ flexShrink: 0 }} /> ROOFTOP KITCHEN & HOTEL
           </span>
         </div>
       </div>
 
-      {/* Main CHARIS Style Navigation Header */}
+      {/* Main Navigation Header */}
       <header style={{
         position: 'sticky',
         top: 0,
@@ -83,15 +82,16 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
         backgroundColor: scrolled ? 'rgba(246, 242, 235, 0.98)' : 'var(--color-bg)',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         borderBottom: '1px solid var(--color-border)',
-        transition: 'all 0.3s ease',
-        padding: scrolled ? '12px 0' : '16px 0'
+        transition: 'all 0.25s ease',
+        padding: scrolled ? '10px 0' : '14px 0',
+        width: '100%'
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
           
-          {/* CHARIS Style Brand Logo */}
-          <a href="#" style={{ textDecoration: 'none', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-            <div style={{ position: 'relative', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Logo */}
+          <a href="#" style={{ textDecoration: 'none', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+            <div style={{ position: 'relative', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="15" cy="20" r="11" stroke="#4A1725" strokeWidth="1.5" strokeOpacity="0.85"/>
                 <circle cx="25" cy="20" r="11" stroke="#4A1725" strokeWidth="1.5" strokeOpacity="0.85"/>
                 <circle cx="20" cy="15" r="7" stroke="#C88D42" strokeWidth="1" strokeDasharray="2 2"/>
@@ -100,7 +100,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
             <div>
               <div style={{ 
                 fontFamily: 'var(--font-serif)', 
-                fontSize: 'clamp(18px, 4vw, 22px)', 
+                fontSize: 'clamp(16px, 3.8vw, 22px)', 
                 fontWeight: '600', 
                 letterSpacing: '0.1em',
                 lineHeight: '1',
@@ -110,9 +110,9 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
               </div>
               <div style={{ 
                 fontFamily: 'var(--font-sans)', 
-                fontSize: '8px', 
+                fontSize: '7px', 
                 fontWeight: '600', 
-                letterSpacing: '0.18em', 
+                letterSpacing: '0.16em', 
                 color: 'var(--color-text-muted)',
                 marginTop: '2px',
                 textTransform: 'uppercase'
@@ -122,8 +122,8 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
             </div>
           </a>
 
-          {/* Desktop Nav Items */}
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '24px' }} className="desktop-nav">
+          {/* Desktop Links */}
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '20px' }} className="desktop-nav">
             <a href="#home" style={navLinkStyle}>HOME</a>
             <a href="#ambience" style={navLinkStyle}>AMBIENCE</a>
             <a href="#menu" style={navLinkStyle}>MENU</a>
@@ -131,10 +131,10 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
             <a href="#contact" style={navLinkStyle}>LOCATION</a>
           </nav>
 
-          {/* Mobile Right Controls & Action Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Mobile Right Controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
             
-            {/* Saved Reservations Counter Pill */}
+            {/* Bookings Counter */}
             {reservationCount > 0 && (
               <button 
                 onClick={onOpenSavedReservations}
@@ -142,54 +142,54 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
                   background: 'rgba(74, 23, 37, 0.06)',
                   border: '1px solid var(--color-primary)',
                   color: 'var(--color-primary)',
-                  padding: '6px 10px',
+                  padding: '5px 8px',
                   fontSize: '9px',
                   fontWeight: '700',
-                  letterSpacing: '0.08em',
+                  letterSpacing: '0.05em',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '4px'
+                  gap: '3px'
                 }}
               >
-                <Calendar size={12} />
+                <Calendar size={11} />
                 <span>({reservationCount})</span>
               </button>
             )}
 
-            {/* Cart Trigger Button */}
+            {/* Cart Trigger */}
             <button 
               onClick={onOpenCart}
               style={{
                 background: 'transparent',
                 border: '1px solid var(--color-primary)',
                 color: 'var(--color-primary)',
-                padding: '7px 12px',
-                fontSize: '10px',
+                padding: '6px 10px',
+                fontSize: '9px',
                 fontWeight: '700',
-                letterSpacing: '0.08em',
+                letterSpacing: '0.06em',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '4px',
                 whiteSpace: 'nowrap'
               }}
             >
-              <ShoppingBag size={13} />
+              <ShoppingBag size={12} />
               <span>CART ({cartCount})</span>
             </button>
 
-            {/* Reserve Table Primary Button */}
+            {/* Desktop Reserve Button (Hidden on Mobile) */}
             <button 
               onClick={() => onOpenReservation('table')}
-              className="btn-primary"
-              style={{ padding: '8px 14px', fontSize: '10px', letterSpacing: '0.08em' }}
+              className="btn-primary desktop-only-btn"
+              style={{ padding: '8px 14px', fontSize: '10px', letterSpacing: '0.06em' }}
             >
               <span>RESERVE</span>
               <span>→</span>
             </button>
 
-            {/* Mobile Menu Hamburger Toggle */}
+            {/* Mobile Hamburger Toggle Icon */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               style={{
@@ -201,7 +201,6 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
                 display: 'flex',
                 alignItems: 'center'
               }}
-              className="mobile-only-menu-btn"
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -213,12 +212,23 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
           <div style={{
             backgroundColor: 'var(--color-card)',
             borderBottom: '1px solid var(--color-border)',
-            padding: '16px 24px',
+            padding: '16px 20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px',
+            gap: '12px',
             animation: 'fadeIn 0.2s ease'
           }}>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenReservation('table');
+              }}
+              className="btn-primary"
+              style={{ width: '100%', marginBottom: '4px' }}
+            >
+              <span>RESERVE A TABLE NOW →</span>
+            </button>
+
             <a href="#home" onClick={() => setMobileMenuOpen(false)} style={mobileNavLinkStyle}>HOME</a>
             <a href="#ambience" onClick={() => setMobileMenuOpen(false)} style={mobileNavLinkStyle}>THE AMBIENCE</a>
             <a href="#menu" onClick={() => setMobileMenuOpen(false)} style={mobileNavLinkStyle}>ROOFTOP MENU</a>
@@ -236,7 +246,7 @@ const navLinkStyle = {
   fontFamily: 'var(--font-sans)',
   fontSize: '11px',
   fontWeight: '600',
-  letterSpacing: '0.16em',
+  letterSpacing: '0.14em',
   color: 'var(--color-primary)',
   textDecoration: 'none',
   textTransform: 'uppercase',
@@ -247,9 +257,9 @@ const navLinkStyle = {
 
 const mobileNavLinkStyle = {
   fontFamily: 'var(--font-sans)',
-  fontSize: '12px',
+  fontSize: '11px',
   fontWeight: '700',
-  letterSpacing: '0.15em',
+  letterSpacing: '0.12em',
   color: 'var(--color-primary)',
   textDecoration: 'none',
   textTransform: 'uppercase',
