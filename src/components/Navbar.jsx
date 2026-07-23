@@ -46,7 +46,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
         }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
             <MapPin size={11} color="#E0A855" style={{ flexShrink: 0 }} />
-            <span> 3rd floor, College Rd, behind Big Bazaar, Ramdas Colony, Nashik</span>
+            <span> 3rd floor, College Rd, Ramdas Colony, Nashik</span>
           </span>
 
           <span style={{ color: '#E0A855', opacity: 0.6 }}>•</span>
