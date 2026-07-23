@@ -46,7 +46,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
         }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
             <MapPin size={11} color="#E0A855" style={{ flexShrink: 0 }} />
-            <span> 3rd floor, College Rd, Ramdas Colony, Nashik</span>
+            <span>College Rd, Nashik</span>
           </span>
 
           <span style={{ color: '#E0A855', opacity: 0.6 }}>•</span>
@@ -122,7 +122,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
             </div>
           </a>
 
-          {/* Desktop Links */}
+          {/* Desktop Navigation Links (Visible on PC >= 769px) */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: '20px' }} className="desktop-nav">
             <a href="#home" style={navLinkStyle}>HOME</a>
             <a href="#ambience" style={navLinkStyle}>AMBIENCE</a>
@@ -131,10 +131,10 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
             <a href="#contact" style={navLinkStyle}>LOCATION</a>
           </nav>
 
-          {/* Mobile Right Controls */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+          {/* Right Controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             
-            {/* Bookings Counter */}
+            {/* Saved Bookings Counter */}
             {reservationCount > 0 && (
               <button 
                 onClick={onOpenSavedReservations}
@@ -179,7 +179,7 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
               <span>CART ({cartCount})</span>
             </button>
 
-            {/* Desktop Reserve Button (Hidden on Mobile) */}
+            {/* Desktop Reserve Button (Visible ONLY on PC >= 769px) */}
             <button 
               onClick={() => onOpenReservation('table')}
               className="btn-primary desktop-only-btn"
@@ -189,16 +189,16 @@ export default function Navbar({ cartCount, reservationCount, onOpenCart, onOpen
               <span>→</span>
             </button>
 
-            {/* Mobile Hamburger Toggle Icon */}
+            {/* Mobile Hamburger Toggle Icon (Visible ONLY on Mobile <= 768px) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="mobile-only-btn"
               style={{
                 background: 'none',
                 border: 'none',
                 color: 'var(--color-primary)',
                 padding: '4px',
                 cursor: 'pointer',
-                display: 'flex',
                 alignItems: 'center'
               }}
             >

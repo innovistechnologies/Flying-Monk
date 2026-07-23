@@ -205,21 +205,24 @@ html, body {
   overflow: hidden;
 }
 
-/* ==========================================================================
-   STRICT MOBILE BREAKPOINTS (< 768px and iPhone 15/16/17 Specs)
-   ========================================================================== */
+/* Desktop Only / Mobile Only Visibility Helpers */
+@media screen and (min-width: 769px) {
+  .mobile-only-btn {
+    display: none !important;
+  }
+}
 
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 0 12px !important;
+  .desktop-only-btn {
+    display: none !important;
   }
-
+  
   .desktop-nav {
     display: none !important;
   }
 
-  .desktop-only-btn {
-    display: none !important;
+  .container {
+    padding: 0 12px !important;
   }
 
   .eyebrow {
@@ -257,7 +260,7 @@ html, body {
   }
 
   .mobile-grid-2 > div {
-    min-width: 0 !important; /* CRITICAL: Prevents CSS grid text/images from overflowing column bounds */
+    min-width: 0 !important;
   }
 
   .mobile-card-padding {
