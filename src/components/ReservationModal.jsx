@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, Users, Phone, User, CheckCircle, Sparkles, MapPin } from 'lucide-react';
+import { X, CheckCircle } from 'lucide-react';
 
 export default function ReservationModal({ isOpen, onClose, initialType = 'table', initialSuite = null, onSaveReservation }) {
   const [bookingType, setBookingType] = useState(initialType);
@@ -51,12 +51,12 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
         style={{
           backgroundColor: 'var(--color-card)',
           border: '1px solid var(--color-primary)',
-          maxWidth: '560px',
-          width: '100%',
-          padding: '36px',
+          maxWidth: '520px',
+          width: '94vw',
+          padding: '24px 20px',
           boxShadow: 'var(--shadow-hover)',
           position: 'relative',
-          maxHeight: '90vh',
+          maxHeight: '92vh',
           overflowY: 'auto'
         }}
       >
@@ -65,8 +65,8 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
           onClick={resetAndClose}
           style={{
             position: 'absolute',
-            top: '20px',
-            right: '20px',
+            top: '16px',
+            right: '16px',
             background: 'none',
             border: 'none',
             color: 'var(--color-primary)',
@@ -79,45 +79,45 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
 
         {submittedRef ? (
           /* Confirmation State */
-          <div style={{ textAlign: 'center', padding: '20px 0' }}>
+          <div style={{ textAlign: 'center', padding: '16px 0' }}>
             <div style={{
-              width: '60px',
-              height: '60px',
+              width: '52px',
+              height: '52px',
               borderRadius: '50%',
               backgroundColor: 'rgba(74, 23, 37, 0.1)',
               color: 'var(--color-primary)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 20px auto'
+              margin: '0 auto 16px auto'
             }}>
-              <CheckCircle size={32} />
+              <CheckCircle size={28} />
             </div>
 
-            <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '0.2em', color: 'var(--color-gold)', textTransform: 'uppercase', marginBottom: '8px' }}>
-              RESERVATION SAVED IN BROWSER LOCALSTORAGE
+            <div style={{ fontSize: '9px', fontWeight: '700', letterSpacing: '0.15em', color: 'var(--color-gold)', textTransform: 'uppercase', marginBottom: '6px' }}>
+              SAVED IN LOCALSTORAGE
             </div>
 
-            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '28px', color: 'var(--color-primary)', marginBottom: '12px' }}>
+            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '24px', color: 'var(--color-primary)', marginBottom: '8px' }}>
               Thank You, {formData.name}!
             </h3>
 
-            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: '1.5', marginBottom: '24px' }}>
-              Your {bookingType === 'table' ? 'rooftop table' : 'hotel suite'} reservation request has been logged. Our host will confirm via call/WhatsApp.
+            <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: '1.4', marginBottom: '20px' }}>
+              Your {bookingType === 'table' ? 'rooftop table' : 'hotel suite'} reservation has been logged.
             </p>
 
             <div style={{
               backgroundColor: 'var(--color-bg)',
               border: '1px border-dashed var(--color-primary)',
-              padding: '16px',
-              marginBottom: '24px',
-              fontSize: '13px'
+              padding: '12px',
+              marginBottom: '20px',
+              fontSize: '12px'
             }}>
-              <div style={{ color: 'var(--color-primary)', fontWeight: '700', letterSpacing: '0.1em' }}>
-                BOOKING REFERENCE: <span style={{ color: 'var(--color-gold)' }}>{submittedRef}</span>
+              <div style={{ color: 'var(--color-primary)', fontWeight: '700', letterSpacing: '0.08em' }}>
+                BOOKING REF: <span style={{ color: 'var(--color-gold)' }}>{submittedRef}</span>
               </div>
               <div style={{ color: 'var(--color-text-muted)', marginTop: '4px' }}>
-                {formData.date} at {formData.time} • {formData.guests} Guest(s) • {formData.seating}
+                {formData.date} at {formData.time} • {formData.guests} Guest(s)
               </div>
             </div>
 
@@ -126,32 +126,32 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
               className="btn-primary"
               style={{ width: '100%', justifyContent: 'center' }}
             >
-              <span>CLOSE & CONTINUE EXPLORING</span>
+              <span>CLOSE</span>
             </button>
           </div>
         ) : (
           /* Reservation Form */
           <div>
-            <div className="eyebrow" style={{ marginBottom: '8px' }}>
+            <div className="eyebrow" style={{ marginBottom: '6px' }}>
               <span className="eyebrow-line"></span>
               <span>DIRECT RESERVATION</span>
             </div>
 
-            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '28px', color: 'var(--color-primary)', marginBottom: '20px' }}>
+            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '24px', color: 'var(--color-primary)', marginBottom: '16px' }}>
               Reserve Your {bookingType === 'table' ? 'Rooftop Table' : 'Luxury Stay'}
             </h3>
 
             {/* Type Switcher Tabs */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '18px' }}>
               <button
                 type="button"
                 onClick={() => setBookingType('table')}
                 style={{
                   flex: 1,
-                  padding: '10px',
-                  fontSize: '11px',
+                  padding: '8px',
+                  fontSize: '10px',
                   fontWeight: '700',
-                  letterSpacing: '0.12em',
+                  letterSpacing: '0.1em',
                   border: '1px solid var(--color-primary)',
                   backgroundColor: bookingType === 'table' ? 'var(--color-primary)' : 'transparent',
                   color: bookingType === 'table' ? '#FFFFFF' : 'var(--color-primary)',
@@ -165,10 +165,10 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
                 onClick={() => setBookingType('stay')}
                 style={{
                   flex: 1,
-                  padding: '10px',
-                  fontSize: '11px',
+                  padding: '8px',
+                  fontSize: '10px',
                   fontWeight: '700',
-                  letterSpacing: '0.12em',
+                  letterSpacing: '0.1em',
                   border: '1px solid var(--color-primary)',
                   backgroundColor: bookingType === 'stay' ? 'var(--color-primary)' : 'transparent',
                   color: bookingType === 'stay' ? '#FFFFFF' : 'var(--color-primary)',
@@ -179,24 +179,22 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               
               <div>
                 <label style={labelStyle}>YOUR FULL NAME *</label>
-                <div style={{ position: 'relative' }}>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Rahul Sharma"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    style={inputStyle}
-                  />
-                </div>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Rahul Sharma"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  style={inputStyle}
+                />
               </div>
 
               <div>
-                <label style={labelStyle}>MOBILE NUMBER (WHATSAPP CONFIRMATION) *</label>
+                <label style={labelStyle}>MOBILE NUMBER *</label>
                 <input
                   type="tel"
                   required
@@ -207,7 +205,7 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 <div>
                   <label style={labelStyle}>DATE *</label>
                   <input
@@ -219,33 +217,33 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
                   />
                 </div>
                 <div>
-                  <label style={labelStyle}>PREFERRED TIME *</label>
+                  <label style={labelStyle}>TIME *</label>
                   <select
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                     style={inputStyle}
                   >
-                    <option value="18:00">06:00 PM (Sunset)</option>
+                    <option value="18:00">06:00 PM</option>
                     <option value="19:00">07:00 PM</option>
-                    <option value="20:00">08:00 PM (Peak Vibe)</option>
+                    <option value="20:00">08:00 PM</option>
                     <option value="21:00">09:00 PM</option>
-                    <option value="22:00">10:00 PM (Late Stargazing)</option>
+                    <option value="22:00">10:00 PM</option>
                   </select>
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 <div>
-                  <label style={labelStyle}>NO. OF GUESTS *</label>
+                  <label style={labelStyle}>GUESTS *</label>
                   <select
                     value={formData.guests}
                     onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
                     style={inputStyle}
                   >
                     <option value="1">1 Person</option>
-                    <option value="2">2 Persons (Couple/Friends)</option>
-                    <option value="4">4 Persons (Group)</option>
-                    <option value="6">6+ Persons (Party Deck)</option>
+                    <option value="2">2 Persons</option>
+                    <option value="4">4 Persons</option>
+                    <option value="6">6+ Persons</option>
                   </select>
                 </div>
                 <div>
@@ -256,18 +254,18 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
                     style={inputStyle}
                   >
                     <option value="Open Sky Deck">Open Sky Deck</option>
-                    <option value="Fairy Light Canopy Lounge">Canopy Lounge</option>
-                    <option value="Projector Screen Nook">Projector Lounge</option>
+                    <option value="Canopy Lounge">Canopy Lounge</option>
+                    <option value="Projector Nook">Projector Nook</option>
                     <option value="Private Booth">Private Booth</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label style={labelStyle}>SPECIAL CELEBRATION / REQUESTS</label>
+                <label style={labelStyle}>SPECIAL REQUESTS</label>
                 <textarea
                   rows="2"
-                  placeholder="e.g. Birthday surprise, Candlelight dinner, Quiet nook..."
+                  placeholder="e.g. Birthday, Candlelight dinner..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   style={{ ...inputStyle, resize: 'none' }}
@@ -277,9 +275,9 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
               <button 
                 type="submit" 
                 className="btn-primary"
-                style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}
+                style={{ width: '100%', justifyContent: 'center', marginTop: '6px' }}
               >
-                <span>CONFIRM & SAVE RESERVATION</span>
+                <span>CONFIRM & SAVE</span>
                 <span>→</span>
               </button>
 
@@ -294,18 +292,18 @@ export default function ReservationModal({ isOpen, onClose, initialType = 'table
 
 const labelStyle = {
   display: 'block',
-  fontSize: '10px',
+  fontSize: '9px',
   fontWeight: '700',
-  letterSpacing: '0.15em',
+  letterSpacing: '0.12em',
   color: 'var(--color-primary)',
-  marginBottom: '6px',
+  marginBottom: '4px',
   textTransform: 'uppercase'
 };
 
 const inputStyle = {
   width: '100%',
-  padding: '12px 14px',
-  fontSize: '13px',
+  padding: '10px 12px',
+  fontSize: '12px',
   fontFamily: 'var(--font-sans)',
   border: '1px solid var(--color-border)',
   backgroundColor: 'var(--color-bg)',

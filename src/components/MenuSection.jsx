@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Plus, Check, Star } from 'lucide-react';
+import { Plus, Check } from 'lucide-react';
 
 export const MENU_ITEMS = [
   {
@@ -26,7 +26,7 @@ export const MENU_ITEMS = [
     isPopular: true,
     tag: 'GOURMET BITES',
     description: 'Crispy artisanal stuffed bites filled with melted cheese, garnished with maraschino cherry and micro-greens.',
-    ingredients: ['Mozzarella & Cheddar', 'Herbed Breadcrumbs', 'Gourd Nest', 'Cherry Top']
+    ingredients: ['Mozzarella Cheese', 'Herbed Crumbs', 'Cherry Top']
   },
   {
     id: 'item-3',
@@ -39,7 +39,7 @@ export const MENU_ITEMS = [
     isPopular: false,
     tag: 'WOK SPECIALTY',
     description: 'Wok-tossed charred paneer and crisp scallions glazed in dark garlic chili sauce served in a traditional boat dish.',
-    ingredients: ['Cottage Cheese', 'Charred Bell Peppers', 'Garlic Chili Glaze', 'Spring Onion']
+    ingredients: ['Cottage Cheese', 'Bell Peppers', 'Garlic Glaze']
   },
   {
     id: 'item-4',
@@ -52,7 +52,7 @@ export const MENU_ITEMS = [
     isPopular: true,
     tag: 'CHEF CHOICE',
     description: 'Clay-oven roasted chicken drumsticks marinated in hand-ground spices, served with fresh cabbage salad & mint chutney.',
-    ingredients: ['Tandoori Spices', 'Foil Wrapped Legs', 'Shredded Salad', 'Lime & Mint']
+    ingredients: ['Tandoori Spices', 'Shredded Salad', 'Lime & Mint']
   }
 ];
 
@@ -67,11 +67,11 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
   });
 
   return (
-    <section id="menu" style={{ padding: '90px 0', backgroundColor: 'var(--color-bg-alt)', borderTop: '1px solid var(--color-border-light)', borderBottom: '1px solid var(--color-border-light)' }}>
+    <section id="menu" style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-alt)', borderTop: '1px solid var(--color-border-light)', borderBottom: '1px solid var(--color-border-light)' }}>
       <div className="container">
         
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 50px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 36px auto' }}>
           <div className="eyebrow" style={{ justifyContent: 'center' }}>
             <span className="eyebrow-line"></span>
             <span>FEATURED 4 MENU SELECTIONS</span>
@@ -80,11 +80,11 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
 
           <h2 style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(32px, 4.5vw, 54px)',
+            fontSize: 'clamp(26px, 4vw, 48px)',
             fontWeight: '400',
             color: 'var(--color-primary)',
             lineHeight: '1.15',
-            marginBottom: '18px'
+            marginBottom: '12px'
           }}>
             Crafted for the{' '}
             <span className="italic-accent" style={{ fontStyle: 'italic' }}>
@@ -94,35 +94,35 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
 
           <p style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: '18px',
+            fontSize: 'clamp(14px, 2vw, 17px)',
             color: 'var(--color-text-muted)',
             lineHeight: '1.5'
           }}>
-            Every dish and beverage at Flying Monk is freshly prepared using handpicked ingredients, designed to complement our open-air ambient rooftop setting.
+            Freshly prepared live to order with handpicked artisanal ingredients.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '48px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '32px', flexWrap: 'wrap' }}>
           {[
             { id: 'all', label: 'ALL 4 DISHES' },
-            { id: 'food', label: 'FOOD STARTERS & GRILLS (3)' },
-            { id: 'drink', label: 'CRAFT DRINKS (1)' }
+            { id: 'food', label: 'FOOD STARTERS (3)' },
+            { id: 'drink', label: 'BEVERAGES (1)' }
           ].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: '11px',
-                fontWeight: '600',
-                letterSpacing: '0.18em',
-                padding: '12px 24px',
+                fontSize: '10px',
+                fontWeight: '700',
+                letterSpacing: '0.12em',
+                padding: '8px 16px',
                 border: '1px solid var(--color-primary)',
                 backgroundColor: activeTab === tab.id ? 'var(--color-primary)' : 'transparent',
                 color: activeTab === tab.id ? '#FFFFFF' : 'var(--color-primary)',
                 cursor: 'pointer',
-                transition: 'all 0.25s ease'
+                transition: 'all 0.2s ease'
               }}
             >
               {tab.label}
@@ -130,12 +130,15 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
           ))}
         </div>
 
-        {/* Menu Cards Grid - 4 Distinct Dishes */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '28px'
-        }}>
+        {/* Menu Cards Grid - Responsive 2:2 Grid on Mobile Screens */}
+        <div 
+          className="mobile-grid-2"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '20px'
+          }}
+        >
           {filteredItems.map(item => {
             const isJustAdded = addedItemId === item.id;
             return (
@@ -149,20 +152,20 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
                   justifyContent: 'space-between',
                   position: 'relative',
                   boxShadow: 'var(--shadow-subtle)',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                  overflow: 'hidden'
                 }}
               >
                 <div>
                   {/* Image Container */}
-                  <div className="img-zoom-container" style={{ height: '240px', position: 'relative' }}>
+                  <div className="img-zoom-container mobile-card-img" style={{ height: '180px', position: 'relative' }}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
                     />
                     
                     {/* Badge */}
-                    <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
-                      <span className="badge">
+                    <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                      <span className="badge" style={{ fontSize: '8px', padding: '2px 6px' }}>
                         {item.tag}
                       </span>
                     </div>
@@ -170,12 +173,12 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
                     {/* Price Tag Overlay */}
                     <div style={{
                       position: 'absolute',
-                      bottom: '16px',
-                      right: '16px',
+                      bottom: '10px',
+                      right: '10px',
                       backgroundColor: 'var(--color-primary)',
                       color: '#FFFFFF',
-                      padding: '6px 14px',
-                      fontSize: '14px',
+                      padding: '4px 10px',
+                      fontSize: '12px',
                       fontFamily: 'var(--font-serif)',
                       fontWeight: '600'
                     }}>
@@ -184,44 +187,44 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
                   </div>
 
                   {/* Card Content */}
-                  <div style={{ padding: '24px' }}>
+                  <div className="mobile-card-padding" style={{ padding: '16px' }}>
                     <div style={{
-                      fontSize: '10px',
+                      fontSize: '9px',
                       fontWeight: '700',
-                      letterSpacing: '0.15em',
+                      letterSpacing: '0.12em',
                       color: 'var(--color-gold)',
                       textTransform: 'uppercase',
-                      marginBottom: '6px'
+                      marginBottom: '4px'
                     }}>
                       {item.categoryLabel}
                     </div>
 
-                    <h3 style={{
+                    <h3 className="mobile-card-title" style={{
                       fontFamily: 'var(--font-serif)',
-                      fontSize: '22px',
+                      fontSize: '18px',
                       fontWeight: '600',
                       color: 'var(--color-primary)',
-                      marginBottom: '10px',
+                      marginBottom: '6px',
                       lineHeight: '1.2'
                     }}>
                       {item.name}
                     </h3>
 
-                    <p style={{
-                      fontSize: '13px',
+                    <p className="mobile-card-desc line-clamp-2" style={{
+                      fontSize: '12px',
                       color: 'var(--color-text-muted)',
-                      lineHeight: '1.5',
-                      marginBottom: '16px'
+                      lineHeight: '1.4',
+                      marginBottom: '12px'
                     }}>
                       {item.description}
                     </p>
 
                     {/* Ingredient Pills */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
-                      {item.ingredients.map((ing, idx) => (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '14px' }}>
+                      {item.ingredients.slice(0, 2).map((ing, idx) => (
                         <span key={idx} style={{
-                          fontSize: '10px',
-                          padding: '3px 8px',
+                          fontSize: '9px',
+                          padding: '2px 6px',
                           backgroundColor: 'rgba(74, 23, 37, 0.05)',
                           color: 'var(--color-primary)',
                           borderRadius: '2px'
@@ -234,37 +237,38 @@ export default function MenuSection({ onAddToCart, addedItemId }) {
                 </div>
 
                 {/* Card Button */}
-                <div style={{ padding: '0 24px 24px 24px' }}>
+                <div className="mobile-card-padding" style={{ padding: '0 16px 16px 16px' }}>
                   <button
                     onClick={() => onAddToCart(item)}
                     style={{
                       width: '100%',
-                      padding: '12px',
+                      padding: '10px 4px',
                       backgroundColor: isJustAdded ? '#2E7D32' : 'transparent',
                       color: isJustAdded ? '#FFFFFF' : 'var(--color-primary)',
                       border: isJustAdded ? '1px solid #2E7D32' : '1px solid var(--color-primary)',
                       fontFamily: 'var(--font-sans)',
-                      fontSize: '11px',
+                      fontSize: '9px',
                       fontWeight: '700',
-                      letterSpacing: '0.15em',
+                      letterSpacing: '0.1em',
                       textTransform: 'uppercase',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: '8px',
-                      transition: 'all 0.25s ease'
+                      gap: '4px',
+                      transition: 'all 0.25s ease',
+                      whiteSpace: 'nowrap'
                     }}
                   >
                     {isJustAdded ? (
                       <>
-                        <Check size={14} />
-                        <span>ADDED TO PRE-ORDER</span>
+                        <Check size={12} />
+                        <span>ADDED TO ORDER</span>
                       </>
                     ) : (
                       <>
-                        <Plus size={14} />
-                        <span>PRE-ORDER THIS DISH</span>
+                        <Plus size={12} />
+                        <span>PRE-ORDER DISH</span>
                       </>
                     )}
                   </button>

@@ -4,22 +4,22 @@ import { ShieldCheck, ArrowRight } from 'lucide-react';
 export const HOTEL_SUITES = [
   {
     id: 'suite-1',
-    name: 'Skyline Terrace Balcony Suite',
+    name: 'Skyline Terrace Suite',
     price: 3499,
     rating: 4.9,
-    tag: 'MOST POPULAR',
+    tag: 'POPULAR STAY',
     image: '/Hotel4.jpg',
-    specs: ['King Bed', 'Star-lit Balcony', 'Free Breakfast', 'Rain Shower'],
+    specs: ['King Bed', 'Star Balcony', 'Breakfast'],
     description: 'Luxury suite featuring plush bedding, direct rooftop balcony deck access, and panoramic city views.'
   },
   {
     id: 'suite-2',
-    name: 'Gen-Z Aesthetic Studio Room',
+    name: 'Gen-Z Studio Room',
     price: 2799,
     rating: 4.8,
     tag: 'BOUTIQUE STAY',
     image: '/Hotel2.webp',
-    specs: ['Queen Bed', 'Ambient LED Setup', 'Smart TV + OTT', 'Workstation'],
+    specs: ['Queen Bed', 'Smart TV', 'Workstation'],
     description: 'Minimalist chic studio designed for digital creators, equipped with high-speed fiber internet & smart TV.'
   },
   {
@@ -27,20 +27,20 @@ export const HOTEL_SUITES = [
     name: 'Botanical Master Suite',
     price: 4199,
     rating: 5.0,
-    tag: 'PREMIUM LUXURY',
+    tag: 'PREMIUM STAY',
     image: '/Hotel3.jpg',
-    specs: ['King Suite', 'Private Lounge', 'Drink Vouchers', '24/7 Service'],
-    description: 'Our finest suite located adjacent to the botanical lantern lounge, featuring complimentary rooftop drinks on arrival.'
+    specs: ['King Suite', 'Drink Vouchers', '24/7 Service'],
+    description: 'Our finest suite located adjacent to the botanical lantern lounge, featuring complimentary rooftop drinks.'
   }
 ];
 
 export default function HotelStaysSection({ onOpenReservation }) {
   return (
-    <section id="stays" style={{ padding: '90px 0', backgroundColor: 'var(--color-bg-alt)', borderTop: '1px solid var(--color-border-light)' }}>
+    <section id="stays" style={{ padding: '60px 0', backgroundColor: 'var(--color-bg-alt)', borderTop: '1px solid var(--color-border-light)' }}>
       <div className="container">
         
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 50px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 36px auto' }}>
           <div className="eyebrow" style={{ justifyContent: 'center' }}>
             <span className="eyebrow-line"></span>
             <span>BOUTIQUE HOTEL & SUITES</span>
@@ -49,11 +49,11 @@ export default function HotelStaysSection({ onOpenReservation }) {
 
           <h2 style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(32px, 4.5vw, 54px)',
+            fontSize: 'clamp(26px, 4vw, 48px)',
             fontWeight: '400',
             color: 'var(--color-primary)',
             lineHeight: '1.15',
-            marginBottom: '18px'
+            marginBottom: '12px'
           }}>
             Rest elevated in our{' '}
             <span className="italic-accent" style={{ fontStyle: 'italic' }}>
@@ -63,16 +63,19 @@ export default function HotelStaysSection({ onOpenReservation }) {
 
           <p style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: '18px',
+            fontSize: 'clamp(14px, 2vw, 17px)',
             color: 'var(--color-text-muted)',
             lineHeight: '1.5'
           }}>
-            Extend your evening experience with a stay in our thoughtfully designed hotel rooms, located right below the rooftop kitchen deck in College Road, Nashik.
+            Located right below the rooftop kitchen deck on College Road, Nashik.
           </p>
         </div>
 
         {/* Suites Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
+        <div 
+          className="mobile-grid-2"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}
+        >
           {HOTEL_SUITES.map(suite => (
             <div
               key={suite.id}
@@ -82,49 +85,50 @@ export default function HotelStaysSection({ onOpenReservation }) {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: 'var(--shadow-subtle)'
+                boxShadow: 'var(--shadow-subtle)',
+                overflow: 'hidden'
               }}
             >
               <div>
-                <div className="img-zoom-container" style={{ height: '220px', position: 'relative' }}>
+                <div className="img-zoom-container mobile-card-img" style={{ height: '160px', position: 'relative' }}>
                   <img src={suite.image} alt={suite.name} />
-                  <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
-                    <span className="badge">{suite.tag}</span>
+                  <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                    <span className="badge" style={{ fontSize: '8px', padding: '2px 6px' }}>{suite.tag}</span>
                   </div>
                   <div style={{
                     position: 'absolute',
-                    bottom: '16px',
-                    right: '16px',
+                    bottom: '10px',
+                    right: '10px',
                     backgroundColor: 'var(--color-primary)',
                     color: '#FFFFFF',
-                    padding: '6px 14px',
-                    fontSize: '14px',
+                    padding: '4px 10px',
+                    fontSize: '12px',
                     fontFamily: 'var(--font-serif)',
                     fontWeight: '600'
                   }}>
-                    ₹{suite.price} / night
+                    ₹{suite.price}
                   </div>
                 </div>
 
-                <div style={{ padding: '24px' }}>
-                  <h3 style={{
+                <div className="mobile-card-padding" style={{ padding: '16px' }}>
+                  <h3 className="mobile-card-title" style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '22px',
+                    fontSize: '18px',
                     fontWeight: '600',
                     color: 'var(--color-primary)',
-                    marginBottom: '10px'
+                    marginBottom: '6px'
                   }}>
                     {suite.name}
                   </h3>
 
-                  <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: '1.5', marginBottom: '20px' }}>
+                  <p className="mobile-card-desc line-clamp-2" style={{ fontSize: '11px', color: 'var(--color-text-muted)', lineHeight: '1.4', marginBottom: '12px' }}>
                     {suite.description}
                   </p>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
                     {suite.specs.map((spec, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '11px', color: 'var(--color-primary)' }}>
-                        <ShieldCheck size={13} color="var(--color-gold)" />
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '10px', color: 'var(--color-primary)' }}>
+                        <ShieldCheck size={11} color="var(--color-gold)" />
                         <span>{spec}</span>
                       </div>
                     ))}
@@ -132,14 +136,14 @@ export default function HotelStaysSection({ onOpenReservation }) {
                 </div>
               </div>
 
-              <div style={{ padding: '0 24px 24px 24px' }}>
+              <div className="mobile-card-padding" style={{ padding: '0 16px 16px 16px' }}>
                 <button
                   onClick={() => onOpenReservation('stay', suite)}
                   className="btn-outline"
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  style={{ width: '100%', justifyContent: 'center', padding: '8px', fontSize: '9px' }}
                 >
-                  <span>INQUIRE / BOOK SUITE</span>
-                  <ArrowRight size={14} />
+                  <span>INQUIRE / BOOK</span>
+                  <ArrowRight size={12} />
                 </button>
               </div>
 
