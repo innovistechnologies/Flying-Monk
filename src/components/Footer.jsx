@@ -163,7 +163,7 @@ export default function Footer({ onOpenReservation }) {
           </div>
 
           <div style={{ display: 'flex', gap: '14px' }}>
-            <span>CHARIS LUXURY DESIGN</span>
+            <span>INNOVIS LUXURY DESIGN</span>
             <span>NASHIK, MH</span>
           </div>
         </div>
